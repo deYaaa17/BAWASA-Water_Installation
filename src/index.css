@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+#map {
+  height: 500px;
+  width: 100%;
+  border-radius: 12px;
+}
