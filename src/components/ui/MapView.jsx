@@ -16,12 +16,14 @@ export default function MapView() {
 
   return (
     <div className="bg-white p-4 rounded-lg shadow">
-      <MapContainer center={[-20.1500, 28.5833]} zoom={12} style={{ height: '500px' }}>
+      <MapContainer center={[12.7311, 121.4156]} zoom={13} style={{ height: '500px' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; OpenStreetMap contributors'
         />
-        {reports.map((r) => (
+        {reports
+          .filter((r) => typeof r.lat === 'number' && typeof r.lng === 'number')
+          .map((r) => (
           <Marker key={r.id} position={[r.lat, r.lng]}>
             <Popup>
               <strong>{r.location}</strong><br />
